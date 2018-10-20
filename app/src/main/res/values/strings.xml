@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Show Countries</string>
+
+    <!-- Strings that use on login form & signup-->
+    <string name="email">Enter Your Email</string>
+    <string name="password">Enter Your Password</string>
+    <string name="confirm_pass">Confirm Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="sign_up">Sign up</string>
+
+    <!--Login validation-->
+    <string name="error_for_empty_field">This field is required</string>
+    <string name="error_invalid_email_or_pass">Invalid email or password</string>
+
+    <!--SignUp-->
+    <string name="error_invalid_password">Password must contain at least 1 uppercase letter, 1 lower case letter,1 number</string>
+    <string name="error_short_password">Password is too short</string>
+    <string name="error_invalid_email">Invalid email</string>
+    <string name="error_confirm_password">This not the same with password</string>
+
+
+</resources>
