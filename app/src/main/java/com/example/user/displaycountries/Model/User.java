@@ -1,10 +1,10 @@
 package com.example.user.displaycountries.Model;
 
+//This class to intialize User object with Email and password
 public class User {
 
     private String email;
     private String password;
-    private String userId;
 
     public String getEmail() {
         return email;
@@ -23,11 +23,4 @@ public class User {
         this.password = password;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 }

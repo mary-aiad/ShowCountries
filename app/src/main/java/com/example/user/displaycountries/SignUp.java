@@ -25,14 +25,13 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignUp extends AppCompatActivity {
 
     private EditText userEmail, userPassowrd, confirmPass;
-    private Button signUpBtn;
+    private Button signUpBtn, login;
+    private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference reference;
     private FirebaseUser currentUser;
-    private FirebaseAuth.AuthStateListener authStateListener;
 
-    private ProgressDialog progressDialog;
 
 
     @Override
@@ -53,11 +52,20 @@ public class SignUp extends AppCompatActivity {
         confirmPass = (EditText) findViewById(R.id.confirm_pass);
 
         signUpBtn = (Button) findViewById(R.id.sign_up_btn);
+        login = (Button) findViewById(R.id.login_in_btn);
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 checkValidData();
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUp.this, Login.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -213,27 +221,5 @@ public class SignUp extends AppCompatActivity {
         Intent intent = new Intent(SignUp.this, Login.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if(firebaseAuth != null) {
-            firebaseAuth.addAuthStateListener(authStateListener);
-            currentUser = firebaseAuth.getCurrentUser();
-        }
-    }
-
-    @Override
-    protected void onPause () {
-        super.onPause();
-        firebaseAuth.addAuthStateListener(authStateListener);
-        currentUser = firebaseAuth.getCurrentUser();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-//        firebaseAuth.removeAuthStateListener(authStateListener);
     }
 }
